@@ -7,8 +7,8 @@ class param:
             self.instance.device = None
             self.instance.seed = None
             self.instance.target_score = None
-            #self.instance.target_episodes = None
             self.instance.max_episodes = None
+            self.instance.max_t=None
 
             self.instance.state_size = None
             self.instance.action_size = None

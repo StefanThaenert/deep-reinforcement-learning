@@ -40,21 +40,8 @@ class maddpgAGENT():
             t_stop_noise (int): max number of timesteps with noise applied in training
         """
         self.Param=param()
-        
-        #self.buffer_size = BUFFER_SIZE
-        #self.batch_size = BATCH_SIZE
-        #self.gamma = GAMMA
-        #self.tau = TAU
-        #self.lr_actor = LR_ACTOR
-        #self.lr_critic = LR_CRITIC
-        #self.weight_decay = WEIGHT_DECAY
-        #self.update_every = UPDATE_EVERY
-        #self.n_agents = n_agents
         self.noise_weight = self.Param.noise_start
-        #self.noise_decay = noise_decay
         self.t_step = 0
-        #self.noise_on = True
-        #self.t_stop_noise = t_stop_noise
 
         # create two agents, each with their own actor and critic
         models = [Actor_Critic_Models() for _ in range(self.Param.num_agents)]

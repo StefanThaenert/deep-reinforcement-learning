@@ -13321,7 +13321,14 @@ Score (max over agents) from episode 5: 0.10000000149011612
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Training-of-MADDPG-agent">Training of MADDPG agent<a class="anchor-link" href="#Training-of-MADDPG-agent">&#182;</a></h2>
+<h2 id="Training-of-MADDPG-agent">Training of MADDPG agent<a class="anchor-link" href="#Training-of-MADDPG-agent">&#182;</a></h2><p>A simple MADDPG agent is used to train the two Agents (tennis rackets) for a collaborative game play. The algorithm uses the actor-critic-methode where generally the critic estimates a value function and the actor updates the policy in the direction recommended by the critc. The actor as well as the critic use a local and a target NN. The local NNs are trained by samples from the replay buffer. The weights of the target NN are updated after a certain number of iterations with a soft-update. This improves learning stability compared to a hard-update (one-to-one copy).</p>
+<p>The algorithm includes the following features:</p>
+<ul>
+<li>replay buffer: saves experience in tuples and reuses them randomly if enough samples are available.</li>
+<li>batch normalization: the previous projects showed that there seems to be an improvement in the learning process.</li>
+<li>global defined parameters: instead of pushing parameters through the different layers of functions, they're initialy defined an reused in every function.</li>
+</ul>
+
 </div>
 </div>
 </div>

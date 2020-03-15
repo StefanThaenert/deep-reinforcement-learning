@@ -16,7 +16,7 @@ LrActor = 1e-3
 LrCritic = 1e-3
 Tau = 1e-3
 NoiseDecay = 0.999
-Device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+Device = 'cpu' #torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
 class Agent():
@@ -46,13 +46,13 @@ class Agent():
               .format(BatchSize, BufferSize, Gamma,
                       LrActor, LrCritic, Tau, NoiseDecay))
         # Actor Network
-        self.actor_local = Actor(state_size, action_size, random_seed, [400, 300]).to(Device)
-        self.actor_target = Actor(state_size, action_size, random_seed, [400, 300]).to(Device)
+        self.actor_local = Actor(state_size, action_size, random_seed, [256, 64]).to(Device)
+        self.actor_target = Actor(state_size, action_size, random_seed, [256, 64]).to(Device)
         self.actor_optimizer = optim.Adam(self.actor_local.parameters(), lr=LrActor)
 
         # Critic Network
-        self.critic_local = Critic(state_size, action_size, random_seed, [400, 300]).to(Device)
-        self.critic_target = Critic(state_size, action_size, random_seed, [400, 300]).to(Device)
+        self.critic_local = Critic(state_size, action_size, random_seed, [256, 64]).to(Device)
+        self.critic_target = Critic(state_size, action_size, random_seed, [256, 64]).to(Device)
         self.critic_optimizer = optim.Adam(self.critic_local.parameters(), lr=LrCritic)
 
         # Initialize target networks weights with the local networks ones
